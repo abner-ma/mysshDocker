@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:latest
 MAINTAINER gggzs (njuptgggzs@163.com)
 
 RUN apt-get update
