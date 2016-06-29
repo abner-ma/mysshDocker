@@ -12,6 +12,10 @@ RUN mkdir -p /root/.ssh
 RUN echo "root:111111"|chpasswd
 RUN sed -i 's/without-password/yes/' /etc/ssh/sshd_config
 
+#add a test user
+RUN useradd test
+RUN echo "test:123456"|chpasswd
+
 #add scripts
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
