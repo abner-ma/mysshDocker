@@ -20,6 +20,10 @@ RUN echo "test:123456"|chpasswd
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
 
+#add startUML
+RUN apt-get install graphviz
+RUN apt-get install default-jre
+
 EXPOSE 22
 
 CMD ["/run.sh"]
