@@ -21,8 +21,8 @@ ADD run.sh /run.sh
 RUN chmod 755 /run.sh
 
 #add startUML
-RUN apt-get install graphviz
-RUN apt-get install default-jre
+RUN apt-get install -y graphviz
+RUN apt-get install -y default-jre
 
 EXPOSE 22
 
