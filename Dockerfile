@@ -23,6 +23,7 @@ RUN chmod 755 /run.sh
 #add startUML
 RUN apt-get install -y graphviz
 RUN apt-get install -y default-jre
+ADD plantuml.jar /plantuml.jar
 
 EXPOSE 22
 
