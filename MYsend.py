@@ -1,10 +1,33 @@
 #!/usr/bin/python
 #-*-coding:UTF-8-*-
+
+import ConfigParser
+
 import smtplib
 from email.mime.text import MIMEText
 
+class mailconfig(object):
+    user_name = "test@163.com"
+    user_pw = "password"
+    config_name = "/etc/MYsend.ini"
+
+    def __init__(self,config_name):
+        self.config_name = config_name
+
+    def getConfig(self):
+        config = ConfigParser.ConfigParser()
+        config.readfp(open(self.config_name, "rb"))
+        self.user_name = config.get("global", "user_name")
+        self.user_pw = config.get("global", "user_pw")
+
+    def get_user_name(self):
+        return self.user_name
+    
+    def get_user_pw(self):
+        return self.user_pw
+
 class MYsend(object):
-    mailto_list=['969023674@qq.com',]           #收件人(列表)
+    mailto_list=['9690xxxxx@qq.com',]           #收件人(列表)
     mail_host="smtp.163.com"            #使用的邮箱的smtp服务器地址，这里是163的smtp地址
     user_name="test@163.com"
     user_pw="password"
