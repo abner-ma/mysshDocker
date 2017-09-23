@@ -19,6 +19,7 @@ MAINTAINER gggzs (njuptgggzs@163.com)
 #add scripts
 #ADD run.sh /run.sh
 #RUN chmod 755 /run.sh
+ADD MYmail.ini /MYmail.ini
 ADD MYsend.py /MYsend.py
 RUN chmod 755 /MYsend.py
 
@@ -29,4 +30,4 @@ RUN chmod 755 /MYsend.py
 
 #EXPOSE 22
 
-CMD ["/MYsend.py"]
+CMD ["./MYsend.py"]

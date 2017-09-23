@@ -7,6 +7,7 @@ import smtplib
 from email.mime.text import MIMEText
 
 class mailconfig(object):
+    send_to = "9690xxxxx@qq.com"
     user_name = "test@163.com"
     user_pw = "password"
     config_name = "/etc/MYsend.ini"
@@ -19,12 +20,16 @@ class mailconfig(object):
         config.readfp(open(self.config_name, "rb"))
         self.user_name = config.get("global", "user_name")
         self.user_pw = config.get("global", "user_pw")
+        self.send_to = config.get("global", "send_to")
 
     def get_user_name(self):
         return self.user_name
     
     def get_user_pw(self):
         return self.user_pw
+
+    def get_send_to(self):
+        return self.send_to
 
 class MYsend(object):
     mailto_list=['9690xxxxx@qq.com',]           #收件人(列表)
@@ -35,6 +40,9 @@ class MYsend(object):
     def __init__(self,user_name,user_pw):
         self.user_name=user_name
         self.user_pw=user_pw
+
+    def set_mailto_list(self,send_to):
+        self.mailto_list[0] = send_to
 
     def send_mail(self):
         sender="hello"+"<"+self.user_name+">"
@@ -55,7 +63,11 @@ class MYsend(object):
             return False
 
 if __name__ == "__main__":
-    mysendmail_obj = MYsend("usermailname","clientpassword")
+    myconf_obj = mailconfig("./MYmail.ini")
+    myconf_obj.getConfig()
+
+    mysendmail_obj = MYsend(myconf_obj.get_user_name(),myconf_obj.get_user_pw())
+    mysendmail_obj.set_mailto_list(myconf_obj.get_send_to())
     mysendmail_obj.send_mail()
     print "Done!"
 #for i in range(1):                             #发送1封，上面的列表是几个人，这个就填几
