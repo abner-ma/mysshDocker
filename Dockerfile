@@ -3,8 +3,8 @@ MAINTAINER gggzs (njuptgggzs@163.com)
 
 RUN apt-get update
 
-RUN apt-get install -y graphviz
-RUN apt-get install -y default-jre
+#RUN apt-get install -y graphviz
+#RUN apt-get install -y default-jre
 #ADD plantuml.jar /plantuml.jar
 
 #WORKDIR /mytmp
