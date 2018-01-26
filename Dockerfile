@@ -5,8 +5,8 @@ RUN apt-get update
 
 RUN apt-get install -y graphviz
 RUN apt-get install -y default-jre
-ADD plantuml.jar /plantuml.jar
+#ADD plantuml.jar /plantuml.jar
 
-WORKDIR /mytmp
+#WORKDIR /mytmp
 
 CMD ["/bin/bash"]
