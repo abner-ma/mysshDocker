@@ -3,9 +3,8 @@ MAINTAINER gggzs (njuptgggzs@163.com)
 
 RUN apt-get update
 
-RUN apt-get install -y graphviz
-RUN apt-get install -y default-jre
-ADD plantuml.jar /plantuml.jar
+RUN apt-get install -y texlive-full
+RUN apt-get install -y latex-cjk-all
 
 WORKDIR /mytmp
 
