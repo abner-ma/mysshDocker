@@ -10,7 +10,7 @@ RUN echo "set tags=~/vimscript/ctags;tags;" >> /etc/vim/vimrc.local && echo "set
 
 RUN cd ~/vimscript && git clone https://github.com/vim-scripts/The-NERD-tree.git && cp -frp ~/vimscript/The-NERD-tree/* ~/.vim/ && rm -rf ~/vimscript/The-NERD-tree/*
 RUN echo "nmap <F8> :NERDTreeToggle<CR>\nlet g:NERDTreeDirArrows=1\nlet g:NERDTreeWinPos='right'\nlet g:NERDTreeDirArrowExpandable='>'\nlet g:NERDTreeDirArrowCollapsible='v'" >> /etc/vim/vimrc.local
-RUN echo "nmap <C-\>s :cs find s <C-R>=expand("<cword>")<cr><cr>\nnmap <C-\>g :cs find g <C-R>=expand("<cword>")<cr><cr>\nnmap <C-\>c :cs find c <C-R>=expand("<cword>")<cr><cr>\nnmap <C-\>t :cs find t <C-R>=expand("<cword>")<cr><cr>\nnmap <C-\>e :cs find e <C-R>=expand("<cword>")<cr><cr>\nnmap <C-\>f :cs find f <C-R>=expand("<cfile>")<cr><cr>\nnmap <C-\>i :cs find i <C-R>=expand("<cfile>")<cr><cr>\nnmap <C-\>d :cs find d <C-R>=expand("<cword>")<cr><cr>" >> /etc/vim/vimrc.local
+RUN echo "nmap <C-\>s :cs find s <C-R>=expand(\"<cword>\")<cr><cr>\nnmap <C-\>g :cs find g <C-R>=expand(\"<cword>\")<cr><cr>\nnmap <C-\>c :cs find c <C-R>=expand(\"<cword>\")<cr><cr>\nnmap <C-\>t :cs find t <C-R>=expand(\"<cword>\")<cr><cr>\nnmap <C-\>e :cs find e <C-R>=expand(\"<cword>\")<cr><cr>\nnmap <C-\>f :cs find f <C-R>=expand(\"<cfile>\")<cr><cr>\nnmap <C-\>i :cs find i <C-R>=expand(\"<cfile>\")<cr><cr>\nnmap <C-\>d :cs find d <C-R>=expand(\"<cword>\")<cr><cr>" >> /etc/vim/vimrc.local
 
 WORKDIR /myproject
 
