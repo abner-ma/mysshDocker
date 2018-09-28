@@ -15,6 +15,7 @@ RUN echo "let Tlist_File_Fold_Auto_Close=1\nset autochdir" >> /etc/vim/vimrc.loc
 RUN echo "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'" >> /etc/vim/vimrc.local
 RUN echo "def Settings( **kwargs ):\n\treturn {\n\t'flags': [ '-x', 'c++', '-Wall', '-Wextra', '-Werror' ],\n\t}">> ~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py
 RUN echo "let g:winManagerWindowLayout = \"TagList|FileExplorer,BufExplorer\"\nnmap <silent> <F9> :WMToggle<cr>" >> /etc/vim/vimrc.local
+RUN echo "let g:ycm_semantic_triggers =  {'c' : ['->', '.','re!\w{2}'],'cpp,objcpp' : ['->', '.', '::'],}" >> /etc/vim/vimrc.local
 
 RUN cd ~/.vim/bundle/YouCompleteMe && ./install.py --clang-completer
 
