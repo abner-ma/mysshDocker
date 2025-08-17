@@ -15,8 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Login to DockerHub
       uses: docker/login-action@v3
       with:
@@ -28,4 +26,4 @@ jobs:
         context: .
         push: true
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/my-test:latest
