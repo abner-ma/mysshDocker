@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:24.04
 MAINTAINER gggzs (njuptgggzs@163.com)
 
 RUN apt-get update && apt-get install -y vim cscope ctags git build-essential cmake python-dev python3-dev
